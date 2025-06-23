@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Форма подачи новой заявки</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary header">
+        <div class="container-xxl">
+            <a class="navbar-brand" href="#"><img src="img/logos/full-logo.svg" alt="Логотип"></a>
+            <!-- Контейнер offcanvas (единое меню) -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mainMenu" aria-labelledby="offcanvasExampleLabel">
+                <!--div class="offcanvas-header">
+			    	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div-->
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Курсы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Оплаты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Документы</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown d-flex justify-content-center">
+                        <a class="navbar__profile-link flex-column flex-lg-row align-items-center text-decoration-none dropdown-toggle" role="button" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="profile__avatar">А</div>
+                            <span id="profile__name" data-name="Андрей Щербаков">Андрей Щ.</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="navbar__profile-dropdown dropdown-menu">
+                            <li class="navbar__profile-dropdown-item"><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Профиль заказчика</a></li>
+                            <li class="navbar__profile-dropdown-item"><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Выйти</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="burger-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenu" aria-controls="offcanvasExample">
+                <span></span>
+                <span class="burger-menu_short"></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="mt-4">
+        <div class="container-xxl">
+            <h1>Учащийся: Ли Брюс Александрович <br> Оставьте заявку на обучение</h1>
+            <div class="application-form">
+                <h2>Выбор курсов</h2>
+                <div class="application-from__fields">
+                    <div class="select-custom">
+                        <p>Направление предпрофессиональной подготовки</p>
+                        <div class="select-custom__items" tabindex="3">
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt8">
+                            <label class="select-custom__label" for="opt8">Конструирование и робототехника</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt7">
+                            <label class="select-custom__label" for="opt7">Искусственный интеллект</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt6">
+                            <label class="select-custom__label" for="opt6">Программирование</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt5">
+                            <label class="select-custom__label" for="opt5">Информационная безопасность</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt4">
+                            <label class="select-custom__label" for="opt4">Web-разработка</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt3">
+                            <label class="select-custom__label" for="opt3">3D-моделирование и разработка 3D-игр</label><input class="select-custom__input" name="chooseTrack" type="radio" id="opt2">
+                            <label class="select-custom__label" for="opt2">2D- мультипликация и разработка 2D-игр</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt1">
+                            <label class="select-custom__label" for="opt1">Графический дизайн</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt0" checked>
+                            <label class="select-custom__label" for="opt0">Направление не определено</label>
+                            <input class="select-custom__input" name="chooseTrack" type="radio" id="opt-1">
+                            <label class="select-custom__label" for="opt-1">Нет планов на предпрофессиональную подготовку в IT</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-form-fileds">
+                    <div class="multiselect-custom">
+                        <p>Выберите один или несколько курсов*</p>
+                        <div class="select-custom__items" tabindex="4" id="coursesContainer">
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="IT">
+                            <label class="select-custom__label" for="IT">[IT] Основы информационных технологий (с 12 лет)</label>
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="N">
+                            <label class="select-custom__label" for="N">[N] Сети и Web-проектирование (HTML, CSS, JavaScript) с 12 лет</label>
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="P">
+                            <label class="select-custom__label" for="P">[P] Основы программирования, с 13 лет</label>
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="W">
+                            <label class="select-custom__label" for="W">[W] WEB-технологии (PHP, Apache, MySQL)</label>
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="CS">
+                            <label class="select-custom__label" for="CS">[CS] Информатика (для 10-11 класса, подготовка к ЕГЭ)</label>
+                            <input class="select-custom__input" name="chooseCourses" type="checkbox" id="FT">
+                            <label class="select-custom__label" for="FT">[FT] Дизайн web-сайтов (Figma, Tilda)</label>
+                            <input class="select-custom__input select-custom__input_disabled" name="chooseCourses" type="checkbox" id="chooseCourses" disabled="">
+                            <label for="chooseCourses" class="select-custom__label select-custom__label_placeholder">Выберите курс</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bs-custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# 📦 Node.js (на случай сборщика)
+node_modules/
+
+# 💻 Системные файлы Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 💡 MacOS
+.DS_Store
+
+# 🧠 IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 🧹 Временные и резервные файлы
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# 🧪 Тестовые каталоги
+test/
