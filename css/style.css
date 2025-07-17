@@ -140,8 +140,6 @@ h2 {
     display: none;
 }
 
-
-
 .dropdown-item {
     /*white-space: wrap;*/
 }
@@ -157,7 +155,6 @@ h2 {
     margin: 0;
 }
 
-
 .navbar__profile-dropdown[data-bs-popper] {
     border-color: var(--light-stroke-color);
     /*width: 50px;
@@ -167,8 +164,6 @@ h2 {
     text-align: center;
     margin: 0;
 }
-
-
 
 .navbar__profile-dropdown {
     border: 0;
@@ -193,7 +188,6 @@ h2 {
 }
 
 
-
 /*.dropdown-menu {
   right: 0;
   left: auto;
@@ -204,6 +198,12 @@ h2 {
     padding: 1rem 1rem;
 }
 
+.form-control-lg{
+    border: 2px solid var(--light-stroke-color);
+    width: 100%;
+    /*margin-bottom: 0.5rem;*/
+}
+
 .application-form {
     display: flex;
     flex-direction: column;
@@ -211,6 +211,7 @@ h2 {
     border: 1px solid var(--light-stroke-color);
     border-radius: 16px;
     padding: 40px;
+    margin-bottom: 1.8rem;
 }
 
 .select-custom {}
@@ -263,11 +264,8 @@ h2 {
 	display: none;
 }
 
-
-
-
 .select-custom__label {
-    padding: 12px 24px;
+    padding: 12px 3.5rem 12px 1rem; /* правый паддинг — под иконку */
     display: none;
     z-index: 1;
     pointer-events: none;

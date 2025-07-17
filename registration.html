@@ -16,9 +16,6 @@
             <a class="navbar-brand" href="#"><img src="img/logos/full-logo.svg" alt="Логотип"></a>
             <!-- Контейнер offcanvas (единое меню) -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="mainMenu" aria-labelledby="offcanvasExampleLabel">
-                <!--div class="offcanvas-header">
-			    	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				</div-->
                 <div class="offcanvas-body">
                     <ul class="navbar-nav me-auto mb-4 mb-lg-0">
                         <li class="nav-item">
@@ -58,6 +55,87 @@
         <div class="container-xxl">
             <h1>Учащийся: Ли Брюс Александрович <br> Оставьте заявку на обучение</h1>
             <div class="application-form">
+                <h2>Заказчик образовательной услуги</h2>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <label for="parentSurname" class="form-label">Фамилия*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="parentSurname" name="parentSurname">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="parentName" class="form-label">Имя*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="parentName" name="parentName">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="parentPatronymic" class="form-label">Отчество*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="parentPatronymic" name="parentPatronymic">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="parentPhone" class="form-label">Телефон*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="parentPhone" name="parentPhone">
+                    </div>
+                </div>
+            </div>
+            <div class="application-form">
+                <h2>Учащийся</h2>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <label for="studentSurname" class="form-label">Фамилия*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="studentSurname" name="studentSurname">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="studentName" class="form-label">Имя*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="studentName" name="studentName">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="studentPatronymic" class="form-label">Отчество*</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="studentPatronymic" name="studentPatronymic">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="studentPhone" class="form-label">Телефон</label><br>
+                        <input type="text" class="form-control-lg mb-2" id="studentPhone" name="studentPhone">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p>Год рождения*</p>
+                        <div class="select-custom__items" tabindex="2" id="chooseYearContainer">
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2016">
+                            <label class="select-custom__label" for="2016">2016</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2015">
+                            <label class="select-custom__label" for="2015">2015</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2014">
+                            <label class="select-custom__label" for="2014">2014</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2013">
+                            <label class="select-custom__label" for="2013">2013</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2012">
+                            <label class="select-custom__label" for="2012">2012</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2011">
+                            <label class="select-custom__label" for="2011">2011</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2010">
+                            <label class="select-custom__label" for="2010">2010</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2009">
+                            <label class="select-custom__label" for="2009">2009</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2008">
+                            <label class="select-custom__label" for="2008">2008</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2007">
+                            <label class="select-custom__label" for="2007">2007</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2006">
+                            <label class="select-custom__label" for="2006">2006</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2005">
+                            <label class="select-custom__label" for="2005">2005</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2004">
+                            <label class="select-custom__label" for="2004">2004</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2003">
+                            <label class="select-custom__label" for="2003">2003</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2002">
+                            <label class="select-custom__label" for="2002">2002</label>
+                            <input class="select-custom__input" name="chooseYear" type="radio" id="2001">
+                            <label class="select-custom__label" for="2001">2001</label>
+                            <input class="select-custom__input select-custom__input_disabled" name="chooseCourses" type="checkbox" id="chooseCourses" disabled="">
+                            <label for="chooseCourses" class="select-custom__label select-custom__label_placeholder">Выберите год рождения</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="application-form">
                 <h2>Выбор курсов</h2>
                 <div class="application-from__fields">
                     <div class="select-custom">
@@ -86,7 +164,7 @@
                     </div>
                 </div>
                 <div class="application-form-fileds">
-                    <div class="multiselect-custom">
+                    <div class="select-custom">
                         <p>Выберите один или несколько курсов*</p>
                         <div class="select-custom__items" tabindex="4" id="coursesContainer">
                             <input class="select-custom__input" name="chooseCourses" type="checkbox" id="IT">
@@ -110,7 +188,6 @@
         </div>
     </main>
     <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/bs-custom.js"></script>
 </body>
 
 </html>
