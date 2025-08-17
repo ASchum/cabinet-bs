@@ -49,54 +49,58 @@
             </div>
         </div>
     </nav>
-    <main class="container-xxl py-4">
-        <h2 class="cabinet-title mb-2">Мирошниченко Василиса Георгиевна</h2>
+    <main class="container-xxl">
+        <h1 class="cabinet-title">Мирошниченко Василиса Георгиевна</h1>
         <div class="cabinet-id mb-4">ID: 13775</div>
-        <div class="row g-4 mb-4">
-            <div class="col-lg-8">
+        <section class="cabinet-section row g-4">
+            <div class="col-12 col-md-8 order-md-1">
                 <div class="cabinet-block cabinet-block--info mb-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="cabinet-block__title">Данные учащегося</span>
-                        <a href="#" class="cabinet-block__edit"><i class="bi bi-pencil"></i> Редактировать</a>
+                        <h3 class="cabinet-block__title">Данные учащегося</h3>
+                        <a href="#" class="cabinet-block__edit">Редактировать <i class="bi bi-pencil"></i></a>
                     </div>
                     <div class="row g-3">
-                        <div class="col-md-3">Год рождения<br><b>2013</b></div>
-                        <div class="col-md-3">Телефон<br><b>+7 921 635-56-56</b></div>
-                        <div class="col-md-3">Школа<br><b>не указано</b></div>
-                        <div class="col-md-3">Класс<br><b>8</b></div>
+                        <div class="col-sm-6 col-md-3"><strong>Год рождения</strong><br><span>2013</span></div>
+                        <div class="col-sm-6 col-md-3"><strong>Телефон</strong><br><span>+7 921 635-56-56</span></div>
+                        <div class="col-sm-6 col-md-3"><strong>Школа</strong><br><span class="text-muted">не указано</span></div>
+                        <div class="col-sm-6 col-md-3"><strong>Класс</strong><br><span>8</span></div>
                     </div>
                 </div>
+            </div>          
+            <div class="col-12 col-md-8 order-md-3">
                 <div class="cabinet-block cabinet-block--edu mb-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="cabinet-block__title">Обучение</span>
-                        <a href="#" class="cabinet-block__edit"><i class="bi bi-pencil"></i> Редактировать</a>
+                        <a href="#" class="cabinet-block__edit">Редактировать <i class="bi bi-pencil"></i></a>
                     </div>
                     <div class="row g-3">
-                        <div class="col-md-3">Направление<br><b>2D-мультипликация и разработка 2D игр</b></div>
-                        <div class="col-md-3">Форма обучения<br><b>дистанционная</b></div>
-                        <div class="col-md-6">Дополнительный комментарий<br><b>Lorem ipsum dolor sit amet consectetur. Morbi molestie nulla mauris nec condimentum neque.</b></div>
+                        <div class="col-md-3"><strong>Направление</strong><br><span>2D-мультипликация и разработка 2D игр</span></div>
+                        <div class="col-md-3"><strong>Форма обучения</strong><br><span>дистанционная</span></div>
+                        <div class="col-md-6"><strong>Дополнительный комментарий</strong><br><span>Lorem ipsum dolor sit amet consectetur. Morbi molestie nulla mauris nec condimentum neque.</span></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 d-flex flex-column gap-4">
-                <div class="cabinet-block cabinet-block--qr d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md-4 order-md-2">
+                <a href="#" class="cabinet-block cabinet-block--qr d-flex align-items-center justify-content-center text-decoration-none" role="button" aria-label="Пропуск">
                     <div class="text-center">
                         <div class="mb-2"><i class="bi bi-qr-code" style="font-size:2rem;"></i></div>
                         <div>Пропуск</div>
                     </div>
-                </div>
-                <div class="cabinet-block cabinet-block--login d-flex align-items-center justify-content-center">
+                </a>
+            </div>
+            <div class="col-12 col-md-4 order-md-4">
+                <a href="#" class="cabinet-block cabinet-block--login d-flex align-items-center justify-content-center text-decoration-none" role="button" aria-label="Логин и пароль для входа на nfes.ru">
                     <div class="text-center">
                         <div class="mb-2"><i class="bi bi-mortarboard" style="font-size:2rem;"></i></div>
                         <div>Логин и пароль<br>для входа на nfes.ru</div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
-        <section class="cabinet-section mb-5">
-            <h3 class="cabinet-section__title mb-3">Заявки</h3>
+        </section>
+        <section class="cabinet-section">
+            <h2 class="cabinet-section__title mb-3">Заявки</h2>
             <div class="cabinet-section__add mb-3 text-end">
-                <a href="#" class="cabinet-section__add-link"><i class="bi bi-plus"></i> Добавить заявку</a>
+                <a href="#" class="cabinet-section__add-link">Добавить заявку <i class="bi bi-plus"></i></a>
             </div>
             <div class="cabinet-message mb-4">
                 <div class="cabinet-message__icon"><i class="bi bi-info-circle"></i></div>
@@ -109,7 +113,7 @@
                 <div class="cabinet-application mb-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div class="cabinet-application__tag cabinet-application__tag--it">IT</div>
-                        <a href="#" class="cabinet-application__remove"><i class="bi bi-trash"></i> Удалить заявку</a>
+                        <a href="#" class="cabinet-application__remove">Удалить заявку <i class="bi bi-trash"></i></a>
                     </div>
                     <div class="cabinet-application__title mb-2">Основы информационных технологий (с 12 лет)</div>
                     <div class="cabinet-application__steps d-flex align-items-center mb-2">
@@ -123,7 +127,7 @@
                 <div class="cabinet-application mb-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div class="cabinet-application__tag cabinet-application__tag--bs">BS</div>
-                        <a href="#" class="cabinet-application__remove"><i class="bi bi-trash"></i> Удалить заявку</a>
+                        <a href="#" class="cabinet-application__remove">Удалить заявку <i class="bi bi-trash"></i></a>
                     </div>
                     <div class="cabinet-application__title mb-2">Введение в интернет-технологии и презентационную графику (облачные приложения, офис, AR) (10-11 лет)</div>
                     <div class="cabinet-application__steps d-flex align-items-center mb-2">
@@ -136,8 +140,8 @@
                 </div>
             </div>
         </section>
-        <section class="cabinet-section mb-5">
-            <h3 class="cabinet-section__title mb-3">Курсы</h3>
+        <section class="cabinet-section">
+            <h2 class="cabinet-section__title mb-3">Курсы</h2>
             <div class="cabinet-courses mb-4">
                 <div class="cabinet-courses__tabs mb-3">
                     <a href="#" class="cabinet-courses__tab cabinet-courses__tab--active">Текущие курсы</a>
@@ -169,8 +173,8 @@
                 </div>
             </div>
         </section>
-        <section class="cabinet-section mb-5">
-            <h3 class="cabinet-section__title mb-3">Оплаты</h3>
+        <section class="cabinet-section">
+            <h2 class="cabinet-section__title mb-3">Оплаты</h2>
             <div class="cabinet-payments mb-4">
                 <table class="table cabinet-payments__table">
                     <thead>
@@ -210,7 +214,7 @@
                 </table>
             </div>
         </section>
-        <section class="cabinet-section mb-5">
+        <section class="cabinet-section">
             <h3 class="cabinet-section__title mb-3">Документы</h3>
             <div class="cabinet-docs mb-4 d-flex gap-3">
                 <a href="#" class="cabinet-docs__btn">Договор-оферта</a>
