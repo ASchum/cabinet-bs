@@ -42,15 +42,13 @@ form .invalid-feedback {
     --light-stroke-color: #9DCDF0;
     --error-color: #E70000;
 
-    --forth-level-accent-color: #2740C7;
-    --third-level-accent-color: #00616F;
-    --second-level-accent-color: #006810;
-    --first-level-accent-color: #316800;
+    --third-level-accent-color: #2740C7;
+    --second-level-accent-color: #00616F;
+    --first-level-accent-color: #006810;
 
-    --forth-level-light-color: #C7D3F5;
-    --third-level-light-color: #C7EDF5;
-    --second-level-light-color: #C7F5CD;
-    --first-level-light-color: #DBFFA2;
+    --third-level-light-color: #C7D3F5;
+    --second-level-light-color: #C7EDF5;
+    --first-level-light-color: #C7F5CD;
 }
 
 /* Подсветка ошибки для bootstrap */
@@ -567,280 +565,64 @@ h2 {
     margin-bottom: 1.5rem;
 }
 .cabinet-application__tag {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
     border-radius: 8px;
-    padding: 0 12px;
-    min-width: 56px;
-    min-height: 56px;
+    padding: 10px;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--white-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
 }
-
-/* hover / focus — микроанимация и доступный фокус */
-.cabinet-application__tag:hover,
-.cabinet-application__tag:focus {
-    /* no animation on hover/focus */
-    transform: none;
-    box-shadow: none;
+.cabinet-application__tag--it {
+    background: #B6E3C6;
+    color: #008A2E;
 }
-.cabinet-application__tag:focus-visible {
-    /* keep accessible focus ring for keyboard navigation */
-    box-shadow: 0 0 0 4px rgba(9,130,217,0.12);
-}
-
-.cabinet-application__tag--first-level {
-    background: var(--first-level-light-color);
-    color: var(--first-level-accent-color);
-}
-.cabinet-application__tag--second-level {
-    background: var(--second-level-light-color);
-    color: var(--second-level-accent-color);
-}
-
-.cabinet-application__tag--light {
-    background: #F6FBF6;
-    color: #007F2A;
-    border: 1px solid rgba(0,0,0,0.06);
-}
-
-/* Компактный вариант */
-.cabinet-application__tag--small {
-    min-width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-    padding: 0 8px;
+.cabinet-application__tag--bs {
+    background: #E3EFB6;
+    color: #8A7F00;
 }
 .cabinet-application__remove {
     color: var(--blue-color);
     font-size: 0.95rem;
     text-decoration: none;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 4px;
-    white-space: nowrap;
 }
 .cabinet-application__remove:hover {
     color: var(--dark-color);
 }
 .cabinet-application__title {
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 .cabinet-application__steps {
     gap: 16px;
-    justify-content: space-between;
+    display: none !important;
 }
 .cabinet-application__step {
-    /* Мобильная версия по умолчанию */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    padding: 0.5rem 0;
-    width: 100%;
-}
-
-/* Десктопная версия */
-@media (min-width: 576px) {
-    .cabinet-application__step {
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        /* Равная ширина колонок */
-        flex: 1 1 0;
-        min-width: 0;
-        max-width: none;
-        justify-content: flex-start;
-        text-align: center;
-        padding: 0;
-    }
-}
-
-.cabinet-application__step-bullet {
     background: #F6F8FA;
     border-radius: 50%;
     width: 48px;
     height: 48px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
     font-weight: 600;
     color: #B0B0B0;
     border: 2px solid #E3E3E3;
-    flex-shrink: 0;
-}
-
-.cabinet-application__step-label {
-    font-size: 0.8rem;
-    color: #B0B0B0;
-    text-align: center;
-    line-height: 1.1;
-}
-
-.cabinet-application__step--active .cabinet-application__step-bullet {
-    background: var(--step-color, var(--blue-color));
-    color: var(--white-color);
-    border-color: var(--step-color, var(--blue-color));
-}
-.cabinet-application__step--active .cabinet-application__step-label {
-    color: var(--step-color, var(--blue-color));
-    font-weight: 600;
-}
-
-
-/* Step connector line (base grey) and progress overlay.
-   Implementation notes:
-   - ::before draws base neutral line between centers of edge bullets using left/right offsets equal to half bullet size.
-   - ::after is the colored overlay; its width is full available line length and we scale it with transform:scaleX()
-     to avoid any rounding/overflow beyond the bullet centers. Use modifier classes .cabinet-application__steps--progress-N
-     for N completed segments (for a 4-step flow N ∈ 0..3).
-*/
-
-.cabinet-application__steps { --step-gap: 2.25rem; }
-
-.cabinet-application__steps {
-    display: flex;
-    gap: var(--step-gap);
-    align-items: center;
     position: relative;
-    padding: 0.5rem 0; /* room for the line */
 }
-
-
-/* base neutral line stretching between first and last bullets */
-.cabinet-application__steps::before {
-    content: "";
-    position: absolute;
-    /* simple percentage offsets so line doesn't overshoot bullets */
-    left: 10%;
-    right: 10%;
-    top: 33%;
-    transform: translateY(-50%);
-    height: 2px;
-    background: #E3E3E3;
-    z-index: 0;
-}
-
-/* colored progress overlay implemented with scaleX to prevent overshoot */
-.cabinet-application__steps::after {
-    content: "";
-    position: absolute;
-    /* use same left/right as base line so overlay matches and won't overshoot */
-    left: 10%;
-    right: 10%;
-    top: 33%;
-    transform: translateY(-50%);
-    height: 2px;
-    background: var(--step-color, var(--blue-color));
-    transform-origin: left;
-    transform: scaleX(0);
-    transition: transform 0.28s ease;
-    z-index: 1;
-}
-
-
-
-/* progress steps for a 4-step flow */
-.cabinet-application__steps--progress-1::after { transform: scaleX(0); }
-.cabinet-application__steps--progress-2::after { transform: scaleX(0.3333); }
-.cabinet-application__steps--progress-3::after { transform: scaleX(0.6666); }
-.cabinet-application__steps--progress-4::after { transform: scaleX(1); }
-
-/* Each step sits above the line */
-.cabinet-application__step,
-.cabinet-application__step-bullet {
-    z-index: 3; /* sit above the connectors so the line doesn't visually intrude into the circle */
-}
-
-/* Mobile: vertical layout with a vertical connector line.
-   Steps become rows (bullet left, label right). The vertical connector starts below the first bullet center
-   and ends above the last bullet center so it doesn't overshoot. */
-@media (max-width: 575.98px) {
-    .cabinet-application__steps {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: calc(var(--step-bullet-size) / 2 + 0.5rem);
-    }
-    .cabinet-application__steps::before,
-    .cabinet-application__steps::after {
-        /* Центрируем линию по кругу */
-        left: 24px;
-        right: auto;
-        /* Начинаем от центра первого круга */
-        top: 40px;
-        /* Заканчиваем у центра последнего круга */
-        height: calc(100% - 64px);
-        width: 2px;
-        /* Убираем трансформацию по Y */
-        transform: none;
-    }
-    
-    /* Серая базовая линия остаётся как есть */
-    .cabinet-application__steps::before {
-        background: #E3E3E3;
-        z-index: 0;
-    }
-    
-    /* Цветная линия прогресса */
-    .cabinet-application__steps::after {
-        transform-origin: top;
-        transform: scaleY(0);
-        z-index: 1;
-    }
-    
-    /* Прогресс для 4-х шагов */
-    /* На первом шаге прогресс-линия не видна */
-    .cabinet-application__steps--progress-1::after { transform: scaleY(0); }
-    /* Начиная со второго шага линия растёт пропорционально */
-    .cabinet-application__steps--progress-2::after { transform: scaleY(0.333); }
-    .cabinet-application__steps--progress-3::after { transform: scaleY(0.666); }
-    .cabinet-application__steps--progress-4::after { transform: scaleY(1); }
-
-    .cabinet-application__step-bullet {
-        flex: 0 0 auto;
-    }
-
-    .cabinet-application__step-label {
-        text-align: left;
-        max-width: calc(100% - 3.5rem);
-    }
-}
-
-/* Done state: show check icon inside bullet and color label/connector */
-.cabinet-application__step--done .cabinet-application__step-bullet {
-    background: var(--step-color, var(--blue-color));
+.cabinet-application__step--active {
+    background: var(--blue-color);
     color: var(--white-color);
-    border-color: var(--step-color, var(--blue-color));
-}
-.cabinet-application__step--done .cabinet-application__step-label {
-    color: var(--step-color, var(--blue-color));
-    font-weight: 600;
-}
-
-/* Theme helpers: set --step-color on the steps container */
-.cabinet-application__steps--theme-green { --step-color: #23A14A; }
-.cabinet-application__steps--theme-blue { --step-color: var(--blue-color); }
-
-/* If you prefer using an icon inside the bullet, place an <i class="bi bi-check-lg"></i> inside the bullet.
-   Style it to fit: */
-.cabinet-application__step-bullet i {
-    font-size: 1rem;
-    line-height: 1;
-}
-
-/* Hide overflowed labels on narrow steps */
-.cabinet-application__step-label {
-    max-width: 10rem;
+    border-color: var(--blue-color);
 }
 .cabinet-application__step span {
     font-size: 0.8rem;
@@ -877,147 +659,60 @@ h2 {
 .cabinet-course {
     background: var(--white-color);
     border-radius: 16px;
-    margin-bottom: 28px;
-    border: 1px solid #9DCDF0;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cabinet-course__header {
+    border: 1px solid #D6E6F3;
+    padding: 20px 24px;
+    margin-bottom: 1rem;
     display: flex;
-    align-items: flex-start;
-    gap: 32px;
-    padding: 40px 40px 0 40px;
+    align-items: center;
+    gap: 24px;
 }
-
-.cabinet-course__header-content {
-    flex: 1;
-    min-width: 0;
-}
-
 .cabinet-course__tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     border-radius: 8px;
-    width: 86px;
-    height: 86px;
-    font-size: 24px;
-    font-weight: 400;
-    flex-shrink: 0;
-    font-family: 'GorizontRegular';
-    line-height: 130%;
-    padding: 11px 10px 9px;
+    padding: 4px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white-color);
+    margin-right: 16px;
 }
-
 .cabinet-course__tag--bm {
-    background: #C7F5CD;
-    color: #006810;
+    background: #B6E3C6;
+    color: #008A2E;
 }
-
 .cabinet-course__tag--d {
-    background: #C7EDF5;
-    color: #00616F;
+    background: #B6D7E3;
+    color: #007F8A;
 }
-
-.cabinet-course__tag--completed {
-    background: #F2F4F7;
-    color: #475467;
+.cabinet-course__info {
+    flex: 1;
 }
-
 .cabinet-course__title {
-    font-size: 20px;
-    line-height: 140%;
-    font-weight: 500;
-    color: #00183B;
-    margin-bottom: 16px;
-    font-family: 'Golos Text';
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
 }
-
 .cabinet-course__group {
-    font-size: 16px;
-    line-height: 140%;
-    color: #00183B;
-    font-family: 'Golos Text';
-    font-weight: 400;
+    font-size: 0.95rem;
+    color: #878787;
+    margin-bottom: 0.2rem;
 }
-
-.cabinet-course__content {
-    padding: 40px;
-    display: flex;
-    flex-direction: row;
-    gap: 64px;
+.cabinet-course__details {
+    font-size: 0.95rem;
+    color: var(--dark-color);
 }
-
-.cabinet-course__detail {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.cabinet-course__detail-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.cabinet-course__detail i {
-    font-size: 16px;
-    color: #00183B;
-    flex-shrink: 0;
-}
-
-.cabinet-course__detail-content {
-    min-width: 0;
-}
-
-.cabinet-course__detail-label {
-    font-family: 'Golos Text';
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
-    color: #00183B;
-    margin-bottom: 12px;
-}
-
-.cabinet-course__detail-value {
-    font-family: 'Golos Text';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: #00183B;
-}
-
-.cabinet-course__detail-value > div {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .cabinet-course__attendance {
+    color: var(--blue-color);
+    font-size: 1rem;
+    font-weight: 500;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: #0982D9;
-    padding: 12px 28px;
-    border: 1.5px solid #0982D9;
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 174px;
-    height: 46px;
-    box-sizing: border-box;
-    transition: all 0.2s;
+    border: 1px solid var(--blue-color);
+    border-radius: 8px;
+    padding: 8px 18px;
+    transition: background 0.2s, color 0.2s;
 }
-
 .cabinet-course__attendance:hover {
-    background: #0982D9;
-    color: #FFFFFF;
-}
+    background: var(--blue-color);
+    color: var(--white-color);
 }
 .cabinet-payments__table {
     background: var(--white-color);
