@@ -73,7 +73,7 @@ a {
 }
 
 a:hover {
-    color: var(--dark-color) !important;
+    color: var(--dark-color);
 }
 
 
@@ -191,6 +191,7 @@ h2 {
     padding: 12px 28px;
     text-align: center;
     cursor: pointer;
+    display: inline-block
 }
 
 
@@ -210,13 +211,13 @@ h2 {
 .button-secondary {
     background-color: transparent;
     color: var(--blue-color);
-    border: 2px solid var(--blue-color);
+    border: 1px solid var(--blue-color);
 }
 
 .button-secondary:hover:not([disabled]) {
     background-color: var(--blue-color) !important;
     color: var(--white-color) !important;
-    border: 2px solid var(--blue-color) !important;
+    border: 1px solid var(--blue-color) !important;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
@@ -589,21 +590,18 @@ h2 {
 }
 
 .cabinet-application__tag {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
     border-radius: 8px;
-    padding: 0 12px;
-    min-width: 56px;
-    min-height: 56px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 400;
     flex-shrink: 0;
+    font-family: 'GorizontRegular';
+    line-height: 130%;
+    padding: 11px 10px 9px;
 }
 
 /* hover / focus — микроанимация и доступный фокус */
@@ -620,13 +618,13 @@ h2 {
 }
 
 .cabinet-application__tag--first-level {
-    background: var(--first-level-light-color);
-    color: var(--first-level-accent-color);
+    background: #C7F5CD;
+    color: #006810;
 }
 
 .cabinet-application__tag--second-level {
-    background: var(--second-level-light-color);
-    color: var(--second-level-accent-color);
+    background: #C7EDF5;
+    color: #00616F;
 }
 
 .cabinet-application__tag--light {
@@ -686,6 +684,9 @@ h2 {
         gap: 6px;
         /* Равная ширина колонок */
         flex: 1 1 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+
         min-width: 0;
         max-width: none;
         justify-content: flex-start;
@@ -730,146 +731,173 @@ h2 {
 
 /* Step connector line (base grey) and progress overlay.
    Implementation notes:
-   - ::before draws base neutral line between centers of edge bullets using left/right offsets equal to half bullet size.
-   - ::after is the colored overlay; its width is full available line length and we scale it with transform:scaleX()
-     to avoid any rounding/overflow beyond the bullet centers. Use modifier classes .cabinet-application__steps--progress-N
-     for N completed segments (for a 4-step flow N ∈ 0..3).
+   - Mobile-first: вертикальная линия на маленьких экранах
+   - Desktop: горизонтальная линия на больших экранах
+   - ::before - базовая серая линия
+   - ::after - цветная линия прогресса
 */
 
 .cabinet-application__steps {
     --step-gap: 2.25rem;
-}
-
-.cabinet-application__steps {
     display: flex;
-    gap: var(--step-gap);
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
     padding: 0.5rem 0;
-    /* room for the line */
+    gap: var(--step-gap);
 }
 
-
-/* base neutral line stretching between first and last bullets */
+/* Базовая серая линия */
 .cabinet-application__steps::before {
     content: "";
     position: absolute;
-    /* simple percentage offsets so line doesn't overshoot bullets */
-    left: 10%;
-    right: 10%;
-    top: 33%;
-    transform: translateY(-50%);
-    height: 2px;
+    left: 24px;
+    right: auto;
+    top: 24px;
+    height: 80%;
+    width: 2px;
     background: #E3E3E3;
     z-index: 0;
 }
 
-/* colored progress overlay implemented with scaleX to prevent overshoot */
+/* Цветная линия прогресса */
 .cabinet-application__steps::after {
     content: "";
     position: absolute;
-    /* use same left/right as base line so overlay matches and won't overshoot */
-    left: 10%;
-    right: 10%;
-    top: 33%;
-    transform: translateY(-50%);
-    height: 2px;
+    left: 24px;
+    right: auto;
+    top: 24px;
+    height: 80%;
+    width: 2px;
     background: var(--step-color, var(--blue-color));
-    transform-origin: left;
-    transform: scaleX(0);
+    transform-origin: top;
+    transform: scaleY(0);
     transition: transform 0.28s ease;
     z-index: 1;
 }
 
+/* Специфические настройки для 3-шаговых блоков */
+.steps-3.cabinet-application__steps::before,
+.steps-3.cabinet-application__steps::after {
+    left: 24px;
+    height: 80%;
+}
 
-
-/* progress steps for a 4-step flow */
+/* Прогресс-бар для 4-х шагов */
 .cabinet-application__steps--progress-1::after {
-    transform: scaleX(0);
+    transform: scaleY(0);
 }
 
 .cabinet-application__steps--progress-2::after {
-    transform: scaleX(0.3333);
+    transform: scaleY(0.333);
 }
 
 .cabinet-application__steps--progress-3::after {
-    transform: scaleX(0.6666);
+    transform: scaleY(0.666);
 }
 
 .cabinet-application__steps--progress-4::after {
-    transform: scaleX(1);
+    transform: scaleY(1);
 }
 
-/* Each step sits above the line */
-.cabinet-application__step,
+/* Прогресс-бар для 3-х шагов */
+.steps-3.cabinet-application__steps--progress-1::after {
+    transform: scaleY(0);
+}
+
+.steps-3.cabinet-application__steps--progress-2::after {
+    transform: scaleY(0.5);
+}
+
+.steps-3.cabinet-application__steps--progress-3::after {
+    transform: scaleY(1);
+}
+
+/* Стили для блоков шагов */
 .cabinet-application__step-bullet {
+    flex: 0 0 auto;
     z-index: 3;
-    /* sit above the connectors so the line doesn't visually intrude into the circle */
 }
 
-/* Mobile: vertical layout with a vertical connector line.
-   Steps become rows (bullet left, label right). The vertical connector starts below the first bullet center
-   and ends above the last bullet center so it doesn't overshoot. */
-@media (max-width: 575.98px) {
+.cabinet-application__step-label {
+    text-align: left;
+    max-width: calc(100% - 3.5rem);
+}
+
+.cabinet-application__step {
+    z-index: 3;
+}
+
+/* Desktop: горизонтальная линия */
+@media (min-width: 576px) {
     .cabinet-application__steps {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: calc(var(--step-bullet-size) / 2 + 0.5rem);
+        flex-direction: row;
+        align-items: center;
+        padding: 0.5rem 0;
     }
 
-    .cabinet-application__steps::before,
-    .cabinet-application__steps::after {
-        /* Центрируем линию по кругу */
-        left: 24px;
-        right: auto;
-        /* Начинаем от центра первого круга */
-        top: 40px;
-        /* Заканчиваем у центра последнего круга */
-        height: calc(100% - 64px);
-        width: 2px;
-        /* Убираем трансформацию по Y */
-        transform: none;
-    }
-
-    /* Серая базовая линия остаётся как есть */
     .cabinet-application__steps::before {
-        background: #E3E3E3;
-        z-index: 0;
+        left: 10%;
+        right: 10%;
+        top: 33%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: auto;
     }
 
-    /* Цветная линия прогресса */
     .cabinet-application__steps::after {
-        transform-origin: top;
-        transform: scaleY(0);
-        z-index: 1;
+        left: 10%;
+        right: 10%;
+        top: 33%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: auto;
+        transform-origin: left;
+        transform: scaleX(0);
     }
-
-    /* Прогресс для 4-х шагов */
-    /* На первом шаге прогресс-линия не видна */
+    
+    /* Специфические настройки для 3-шаговых блоков */
+    .steps-3.cabinet-application__steps::before,
+    .steps-3.cabinet-application__steps::after {
+        left: 16%;
+        right: 16%;
+        height: 2px;
+        width: auto;
+    }
+    
+    /* Прогресс-бар для 4-х шагов */
     .cabinet-application__steps--progress-1::after {
-        transform: scaleY(0);
+        transform: scaleX(0);
     }
 
-    /* Начиная со второго шага линия растёт пропорционально */
     .cabinet-application__steps--progress-2::after {
-        transform: scaleY(0.333);
+        transform: scaleX(0.3333);
     }
 
     .cabinet-application__steps--progress-3::after {
-        transform: scaleY(0.666);
+        transform: scaleX(0.6666);
     }
 
     .cabinet-application__steps--progress-4::after {
-        transform: scaleY(1);
+        transform: scaleX(1);
+    }
+    
+    /* Прогресс-бар для 3-х шагов */
+    .steps-3.cabinet-application__steps--progress-1::after {
+        transform: scaleX(0);
     }
 
-    .cabinet-application__step-bullet {
-        flex: 0 0 auto;
+    .steps-3.cabinet-application__steps--progress-2::after {
+        transform: scaleX(0.5);
     }
 
+    .steps-3.cabinet-application__steps--progress-3::after {
+        transform: scaleX(1);
+    }
+    
     .cabinet-application__step-label {
-        text-align: left;
-        max-width: calc(100% - 3.5rem);
+        text-align: center;
+        max-width: none;
     }
 }
 
@@ -917,6 +945,32 @@ h2 {
     font-size: 0.95rem;
     color: #878787;
     margin-top: 0.5rem;
+}
+
+.cabinet-schedule{
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.cabinet-schedule__group{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cabinet-schedule__title{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.cabinet-schedule__date{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--blue-color);
+}
+
+.cabinet-schedule__detail-header{
+    font-weight: 500;
 }
 
 .cabinet-courses {
@@ -991,6 +1045,7 @@ h2 {
     font-family: 'GorizontRegular';
     line-height: 130%;
     padding: 11px 10px 9px;
+    /*grid-area: tag;*/
 }
 
 .cabinet-course__tag--bm {
@@ -1022,6 +1077,7 @@ h2 {
     margin-bottom: 10px;
     font-family: 'Golos Text';
     /*flex-grow: 1;*/
+    /*grid-area: title;*/
 }
 
 .cabinet-course__group {
@@ -1096,26 +1152,33 @@ h2 {
     text-decoration: none;
     font-weight: 400;
     font-size: 16px;
-    line-height: 140%;
+
     color: #0982D9;
     padding: 12px 28px;
     border: 1.5px solid #0982D9;
-    border-radius: 100px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 
-    height: 46px;
     box-sizing: border-box;
     transition: all 0.2s;
-    float: right;
+
 }
 
 .cabinet-course__attendance:hover {
     background: #0982D9;
     color: #FFFFFF;
 }
+
+.grid .cabinet-course__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr;
+}
+
+.grid .cabinet-course__header {
+    grid-column: 1/3;
 }
 
 .cabinet-payments__table {
@@ -1193,9 +1256,7 @@ h2 {
 /* END STYLE OF REG/LOG PAGE */
 
 @media (min-width: 576px) {
-    .cabinet-course__details {
-        
-    }
+    .cabinet-course__details {}
 
 
 }
@@ -1205,12 +1266,13 @@ h2 {
     .cabinet-course__details {
         justify-content: space-between;
     }
+
     .cabinet-course__attendance {
         width: auto;
-    }  
-    
+    }
 
-    
+
+
 
 }
 
@@ -1251,16 +1313,23 @@ h2 {
 
     }
 
-    .cabinet-course__details{
+    .cabinet-course__details {
         flex-wrap: nowrap;
     }
+
     .cabinet-course__title {
         flex-grow: 0;
     }
 
-    .cabinet-course__row{
+    .cabinet-course__row {
+        /*
         justify-content: space-between;
+        display: grid;
+        grid-template-columns: 50% 2fr 1fr;
+        */
     }
+
+
 
 
 }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary header">
+        <div class="container-xxl">
+            <a class="navbar-brand" href="#"><img src="img/logos/full-logo.svg" alt="Логотип"></a>
+            <!-- Контейнер offcanvas (единое меню) -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="mainMenu" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Курсы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Оплаты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Документы</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown d-flex justify-content-center">
+                        <a class="navbar__profile-link flex-column flex-lg-row align-items-center text-decoration-none dropdown-toggle"
+                            role="button" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="profile__avatar">А</div>
+                            <span id="profile__name" data-name="Андрей Щербаков">Андрей Щ.</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="navbar__profile-dropdown dropdown-menu">
+                            <li class="navbar__profile-dropdown-item"><a class="dropdown-item" href="#"><i
+                                        class="bi bi-person"></i> Профиль заказчика</a></li>
+                            <li class="navbar__profile-dropdown-item"><a class="dropdown-item" href="#"><i
+                                        class="bi bi-box-arrow-right"></i> Выйти</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="burger-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenu"
+                aria-controls="offcanvasExample">
+                <span></span>
+                <span class="burger-menu_short"></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="container-xxl">
+        <h1 class="cabinet-title">Выбор группы по курсу IT</h1>
+        <section class="cabinet-section">
+            <h2 class="mb-3">Ниже доступен выбор группы по готовому расписанию.</h2>
+            <div class="cabinet-schedule-wrap row">
+                <div class="col-3 cabinet-schedule d-flex flex-column gap-3">
+                    <div class="cabinet-schedule__title">Очная группа</div>
+                    <div class="cabinet-schedule__group">P12</div>
+                    <div class="cabinet-schedule__date">Понедельник<br>18:24-21:00</div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Адрес:</div>
+                        <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                    </div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                        <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                    </div>                    
+                    <a class="button button-primary "href="#">Записаться в группу</a>
+                </div>
+                <div class="col-3 cabinet-schedule d-flex flex-column gap-3">
+                    <div class="cabinet-schedule__title">Очная группа</div>
+                    <div class="cabinet-schedule__group">P12</div>
+                    <div class="cabinet-schedule__date">Понедельник<br>18:24-21:00</div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Адрес:</div>
+                        <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                    </div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                        <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                    </div>                    
+                    <a class="button button-primary "href="#">Записаться в группу</a>
+                </div>
+
+                <div class="col-3 cabinet-schedule d-flex flex-column gap-3">
+                    <div class="cabinet-schedule__title">Очная группа</div>
+                    <div class="cabinet-schedule__group">P12</div>
+                    <div class="cabinet-schedule__date">Понедельник<br>18:24-21:00</div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Адрес:</div>
+                        <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                    </div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                        <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                    </div>                    
+                    <a class="button button-primary "href="#">Записаться в группу</a>
+                </div>
+
+                <div class="col-3 cabinet-schedule d-flex flex-column gap-3">
+                    <div class="cabinet-schedule__title">Очная группа</div>
+                    <div class="cabinet-schedule__group">P12</div>
+                    <div class="cabinet-schedule__date">Понедельник<br>18:24-21:00</div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Адрес:</div>
+                        <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                    </div>
+                    <div class="cabinet-schedule__detail">
+                        <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                        <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                    </div>                    
+                    <a class="button button-primary "href="#">Записаться в группу</a>
+                </div>
+            </div>                                    
+        </section>
+
+    </main>
+    <script src="js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>
