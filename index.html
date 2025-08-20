@@ -283,10 +283,10 @@
                             <div class="cabinet-application__step-label">Выбор группы обучения</div>
                         </div>
                     </div>
-                    <div class="cabinet-schedule">
-                        <a href="schedule.html" class="button button-primary w-100">
-                            Выбор группы по готовому расписанию.
-                        </a>
+                    <div class="p-3">
+                        <button type="button" class="button button-primary w-100" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                            Выбор группы по готовому расписанию
+                        </button>
                     </div>
                     <div class="cabinet-application__desc">
                         Ожидайте обработки заявки. Обработка заявки составляет до 2
@@ -438,42 +438,44 @@
         <section class="cabinet-section">
             <h2 class="cabinet-section__title mb-3">Оплаты</h2>
             <div class="cabinet-payments mb-4">
-                <table class="table cabinet-payments__table">
-                    <thead>
-                        <tr>
-                            <th>Курс</th>
-                            <th>Месяц</th>
-                            <th>Сумма</th>
-                            <th>Статус</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Введение в программное и аппаратное обеспечение компьютера</td>
-                            <td>Декабрь 2024</td>
-                            <td>6 900 ₽</td>
-                            <td>Не оплачено</td>
-                        </tr>
-                        <tr>
-                            <td>Компьютерный дизайн и мультипликация</td>
-                            <td>Декабрь 2024</td>
-                            <td>6 900 ₽</td>
-                            <td>На сверке</td>
-                        </tr>
-                        <tr>
-                            <td>Компьютерный дизайн и мультипликация</td>
-                            <td>Ноябрь 2024</td>
-                            <td>6 900 ₽</td>
-                            <td>Оплачено</td>
-                        </tr>
-                        <tr>
-                            <td>Компьютерный дизайн и мультипликация</td>
-                            <td>Октябрь 2024</td>
-                            <td>6 900 ₽</td>
-                            <td>Оплачено</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="cabinet-payments__wrap">
+                    <table class="table cabinet-payments__table">
+                        <thead>
+                            <tr>
+                                <th>Курс</th>
+                                <th>Месяц</th>
+                                <th>Сумма</th>
+                                <th>Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cabinet-payments__course">Введение в программное и аппаратное обеспечение компьютера</td>
+                                <td data-label="Месяц">Декабрь 2024</td>
+                                <td data-label="Сумма">6 900 ₽</td>
+                                <td data-label="Статус"><span class="cabinet-payments__status cabinet-payments__status--unpaid">Не оплачено</span></td>
+                            </tr>
+                            <tr>
+                                <td class="cabinet-payments__course">Компьютерный дизайн и мультипликация</td>
+                                <td data-label="Месяц">Декабрь 2024</td>
+                                <td data-label="Сумма">6 900 ₽</td>
+                                <td data-label="Статус"><span class="cabinet-payments__status cabinet-payments__status--pending">На сверке</span></td>
+                            </tr>
+                            <tr>
+                                <td class="cabinet-payments__course">Компьютерный дизайн и мультипликация</td>
+                                <td data-label="Месяц">Ноябрь 2024</td>
+                                <td data-label="Сумма">6 900 ₽</td>
+                                <td data-label="Статус"><span class="cabinet-payments__status cabinet-payments__status--paid">Оплачено</span></td>
+                            </tr>
+                            <tr>
+                                <td class="cabinet-payments__course">Компьютерный дизайн и мультипликация</td>
+                                <td data-label="Месяц">Октябрь 2024</td>
+                                <td data-label="Сумма">6 900 ₽</td>
+                                <td data-label="Статус"><span class="cabinet-payments__status cabinet-payments__status--paid">Оплачено</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
         <section class="cabinet-section">
@@ -512,6 +514,122 @@
             });
         })();
     </script>
+    
+    <!-- Модальное окно для выбора группы по расписанию -->
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleModalLabel">Выбор группы по курсу IT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="mb-3">Ниже доступен выбор группы по готовому расписанию.</h2>
+                    <div class="cabinet-schedule-wrap row">
+                        <div class="col-6 col-md-3">
+                            <div class="cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class=" cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="cabinet-schedule d-flex flex-column gap-3">
+                                <div class="cabinet-schedule__title">Очная группа</div>
+                                <div class="cabinet-schedule__group">P12</div>
+                                <div class="cabinet-schedule__date">Понедельник<br>18:45-21:00</div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Адрес:</div>
+                                    <div class="cabinet-schedule__detail-data">Кронверкский пр. 49</div>
+                                </div>
+                                <div class="cabinet-schedule__detail">
+                                    <div class="cabinet-schedule__detail-header">Преподаватель:</div>
+                                    <div class="cabinet-schedule__detail-data">Филина Анна Андреевна</div>
+                                </div>
+                                <a class="button button-primary " href="#">Записаться в группу</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button button-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

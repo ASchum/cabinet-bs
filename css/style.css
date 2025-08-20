@@ -400,6 +400,69 @@ h2 {
     display: none;
 }
 
+/* Таблица оплат */
+.cabinet-payments__wrap {
+    border: 1px solid var(--light-stroke-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white-color);
+}
+.cabinet-payments__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.cabinet-payments__table thead th {
+    text-align: left;
+    padding: 16px 20px;
+    font-weight: 600;
+    color: var(--dark-color);
+    background: transparent;
+    border-bottom: 1px solid var(--light-stroke-color);
+}
+.cabinet-payments__table tbody td {
+    padding: 16px 20px;
+    vertical-align: middle;
+    color: var(--dark-color);
+    border-bottom: 1px dashed rgba(0,0,0,0.05);
+}
+.cabinet-payments__table tbody tr:last-child td {
+    border-bottom: none;
+}
+.cabinet-payments__course {
+    max-width: 540px;
+}
+.cabinet-payments__status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.cabinet-payments__status--paid {
+    color: #13894a;
+    background: rgba(19,137,74,0.08);
+    border: 1px solid rgba(19,137,74,0.12);
+}
+.cabinet-payments__status--pending {
+    color: var(--blue-color);
+    background: rgba(9,130,217,0.06);
+    border: 1px solid rgba(9,130,217,0.12);
+}
+.cabinet-payments__status--unpaid {
+    color: #b26a00;
+    background: rgba(255,196,0,0.06);
+    border: 1px solid rgba(178,106,0,0.12);
+}
+
+@media (max-width: 767px) {
+    .cabinet-payments__table thead { display: none; }
+    .cabinet-payments__table, .cabinet-payments__table tbody, .cabinet-payments__table tr, .cabinet-payments__table td { display: block; width: 100%; }
+    .cabinet-payments__table tbody tr { margin-bottom: 12px; border-bottom: 1px solid var(--light-stroke-color); padding-bottom: 8px; }
+    .cabinet-payments__table td { padding: 10px 12px; }
+    .cabinet-payments__table td::before { content: attr(data-label); font-weight: 600; display: inline-block; width: 110px; color: var(--disabled-color); }
+}
+
 /* правый паддинг — под иконку */
 .select-custom__label {
     padding: 12px 3.5rem 12px 1rem;
@@ -1206,21 +1269,26 @@ h2 {
 }
 
 .cabinet-docs__btn {
-    background: #F6F8FA;
-    border-radius: 8px;
-    color: var(--blue-color);
+    display: inline-flex;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid var(--light-stroke-color);
+    border-radius: 16px;
+    background-color: var(--white-color);
+    align-items: center;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    color: var(--dark-color);
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    padding: 16px 32px;
-    border: 1px solid #D6E6F3;
-    transition: background 0.2s, color 0.2s;
-    display: inline-block;
+    transition: background 0.2s, color 0.2s, filter 0.2s;
 }
 
 .cabinet-docs__btn:hover {
-    background: var(--blue-color);
-    color: var(--white-color);
+    filter: drop-shadow(0px 0px 20px rgba(9, 130, 217, 0.2));
+    background: var(--white-color);
+    color: var(--dark-color);
 }
 
 .left-side {
